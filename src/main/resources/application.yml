@@ -1,0 +1,40 @@
+server:
+  port: 8099
+
+
+spring:
+  profiles:
+    active: h2
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: h2
+  datasource:
+    url: jdbc:h2:file:~/personneldb
+    username: sa
+    password: sa
+    platform: org.hibernate.dialect.H2Dialect
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+---
+#spring:
+#  config:
+#    activate:
+#      on-profile: mongo
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#  data:
+#    mongodb:
+#      uri:
