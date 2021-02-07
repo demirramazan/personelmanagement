@@ -1,3 +1,3 @@
 # Personel Managment System 
 
-Use by backend services spring boot application and frontend react js. 
+Backend service spring boot, hibernate, spring data was used. The frontend service will be written as react js.
