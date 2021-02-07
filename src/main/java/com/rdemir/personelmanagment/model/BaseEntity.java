@@ -33,7 +33,7 @@ public abstract class BaseEntity {
     private LocalDateTime updateDate;
 
     @PreUpdate
-    private void onUpdate(){
-        updateDate=LocalDateTime.now();
+    private void onUpdate() {
+        updateDate = LocalDateTime.now();
     }
 }

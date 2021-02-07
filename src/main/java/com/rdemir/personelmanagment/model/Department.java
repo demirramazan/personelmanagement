@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
@@ -14,6 +15,7 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 public class Department  extends BaseEntity{
 
+    @Column(length = 50)
     private String departmentName;
 
 }

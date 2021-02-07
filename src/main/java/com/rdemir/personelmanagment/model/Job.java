@@ -2,6 +2,7 @@ package com.rdemir.personelmanagment.model;
 
 import lombok.*;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
@@ -12,6 +13,7 @@ import javax.persistence.Entity;
 @EqualsAndHashCode
 public class Job  extends BaseEntity{
 
+    @Column(length = 50)
     private String jobName;
 
 }

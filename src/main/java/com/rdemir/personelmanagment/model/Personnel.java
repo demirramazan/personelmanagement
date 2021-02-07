@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
 
@@ -17,18 +19,20 @@ import java.util.List;
 @Table(name = "PERSONNEL")
 public class Personnel extends BaseEntity {
 
+    @Column(length = 50)
     private String firstName;
+    @Column(length = 50)
     private String lastName;
     @Temporal(TemporalType.DATE)
     private Date birthDay;
     private Double salary;
     @Enumerated(value = EnumType.STRING)
     private Gender gender;
-
+    @Email
     private String email;
 
+    @Size(min = 11, max = 11, message = "Personel IdentityNumber is  size 11")
     private String identityNumber;
-
 
     @OneToOne
     @JoinColumn(name = "DEPARTMENT_ID")
@@ -37,9 +41,8 @@ public class Personnel extends BaseEntity {
     @OneToOne
     @JoinColumn(name = "JOB_ID")
     private Job job;
-//
+
     @OneToMany(mappedBy = "personnel", fetch = FetchType.EAGER)
     private List<Address> address;
-
 
 }
