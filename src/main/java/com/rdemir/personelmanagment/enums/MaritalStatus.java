@@ -1,4 +1,4 @@
-package com.rdemir.personelmanagment.model;
+package com.rdemir.personelmanagment.enums;
 
 public enum MaritalStatus {
     SINGLE, MARRIED, WIDOW

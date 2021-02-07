@@ -1,11 +1,9 @@
 package com.rdemir.personelmanagment.model;
 
+import com.rdemir.personelmanagment.enums.JobType;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -14,7 +12,8 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class Job  extends BaseEntity{
+@Table(name = "PERSONNEL_JOB")
+public class Job extends BaseEntity {
 
     @Column(length = 50)
     private String jobName;
@@ -24,5 +23,14 @@ public class Job  extends BaseEntity{
 
     @Temporal(TemporalType.DATE)
     private Date endDate;
+
+    private String jobDescription;
+
+    @Enumerated(value = EnumType.STRING)
+    private JobType jobType;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PERSONNEL_ID")
+    private Personnel personnel;
 
 }

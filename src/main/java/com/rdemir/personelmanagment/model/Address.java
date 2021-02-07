@@ -1,6 +1,7 @@
 package com.rdemir.personelmanagment.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.rdemir.personelmanagment.enums.AddressType;
 import lombok.*;
 
 import javax.persistence.*;

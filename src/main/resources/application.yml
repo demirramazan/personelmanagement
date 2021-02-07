@@ -25,7 +25,7 @@ spring:
       path: /h2
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
 
 ---
 #spring:

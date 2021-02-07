@@ -37,10 +37,6 @@ public class JobService {
     }
 
     public boolean deleteJobById(Long id) {
-        Personnel personnel = personnelRepository.findByJobId(id);
-        if (personnel != null) {
-            throw new ConfictExceptionHandler("You cannot delete it because it is a staff member.");
-        }
         jobRepository.deleteById(id);
         return true;
     }

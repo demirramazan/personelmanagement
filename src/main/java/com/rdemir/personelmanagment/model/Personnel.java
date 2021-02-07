@@ -1,5 +1,8 @@
 package com.rdemir.personelmanagment.model;
 
+import com.rdemir.personelmanagment.enums.Gender;
+import com.rdemir.personelmanagment.enums.MaritalStatus;
+import com.rdemir.personelmanagment.enums.MilitaryStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -56,10 +59,6 @@ public class Personnel extends BaseEntity {
     @OneToOne
     @JoinColumn(name = "DEPARTMENT_ID")
     private Department department;
-
-    @OneToOne
-    @JoinColumn(name = "JOB_ID")
-    private Job job;
 
     @OneToMany(mappedBy = "personnel", fetch = FetchType.EAGER)
     private List<Address> address;

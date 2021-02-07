@@ -34,9 +34,7 @@ public class PersonnelService {
     @Transactional
     public Personnel savePersonnel(Personnel personnel) {
         Department department = departmentService.saveDepartment(personnel.getDepartment());
-        Job job = jobService.saveJob(personnel.getJob());
         personnel.setDepartment(department);
-        personnel.setJob(job);
         Personnel personnelResult = personnelRepository.save(personnel);
         List<Address> addressList = personnel.getAddress();
         if (addressList != null && !addressList.isEmpty()) {
