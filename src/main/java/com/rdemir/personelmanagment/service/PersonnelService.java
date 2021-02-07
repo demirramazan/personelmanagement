@@ -1,5 +1,6 @@
 package com.rdemir.personelmanagment.service;
 
+import com.rdemir.personelmanagment.exception.NotFoundExceptionHandler;
 import com.rdemir.personelmanagment.model.Address;
 import com.rdemir.personelmanagment.model.Department;
 import com.rdemir.personelmanagment.model.Job;
@@ -32,8 +33,8 @@ public class PersonnelService {
 
     @Transactional
     public Personnel savePersonnel(Personnel personnel) {
-        Department department=  departmentService.saveDepartment(personnel.getDepartment());
-        Job job=  jobService.saveJob(personnel.getJob());
+        Department department = departmentService.saveDepartment(personnel.getDepartment());
+        Job job = jobService.saveJob(personnel.getJob());
         personnel.setDepartment(department);
         personnel.setJob(job);
         Personnel personnelResult = personnelRepository.save(personnel);
@@ -45,5 +46,21 @@ public class PersonnelService {
             }
         }
         return personnelResult;
+    }
+
+    public Boolean deletePersonel(Long id) {
+        Personnel personnel = getPersonel(id);
+        if (personnel == null) {
+            throw new NotFoundExceptionHandler("Personnel is not found.");
+        }
+
+        List<Address> addressList = personnel.getAddress();
+        if (addressList != null && !addressList.isEmpty()) {
+            addressList.forEach(address -> {
+                addressService.deleteById(address.getId());
+            });
+        }
+        personnelRepository.deleteById(id);
+        return true;
     }
 }

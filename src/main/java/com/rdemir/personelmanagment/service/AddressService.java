@@ -17,4 +17,8 @@ public class AddressService {
     public Address saveAddress(Address address) {
         return addressRepository.save(address);
     }
+
+    public void deleteById(Long id) {
+        addressRepository.deleteById(id);
+    }
 }
