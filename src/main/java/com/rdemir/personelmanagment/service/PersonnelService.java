@@ -4,23 +4,18 @@ import com.rdemir.personelmanagment.model.Address;
 import com.rdemir.personelmanagment.model.Department;
 import com.rdemir.personelmanagment.model.Job;
 import com.rdemir.personelmanagment.model.Personnel;
-import com.rdemir.personelmanagment.repository.AddressRepository;
-import com.rdemir.personelmanagment.repository.DepartmentRepository;
 import com.rdemir.personelmanagment.repository.PersonnelRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
 public class PersonnelService {
 
     private final PersonnelRepository personnelRepository;
-    private final AddressRepository addressRepository;
     private final DepartmentService departmentService;
     private final JobService jobService;
     private final AddressService addressService;

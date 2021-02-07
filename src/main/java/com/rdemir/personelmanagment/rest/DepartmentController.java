@@ -1,5 +1,6 @@
 package com.rdemir.personelmanagment.rest;
 
+import com.rdemir.personelmanagment.exception.ConfictExceptionHandler;
 import com.rdemir.personelmanagment.model.Department;
 import com.rdemir.personelmanagment.repository.DepartmentRepository;
 import lombok.AllArgsConstructor;
@@ -21,7 +22,7 @@ public class DepartmentController {
     public ResponseEntity<Department> saveDepartment(@RequestBody Department department) {
         Department department1 = departmentRepository.findByDepartmentName(department.getDepartmentName());
         if (department1 != null) {
-            return new ResponseEntity("Department is already saved.", HttpStatus.CONFLICT);
+            throw new ConfictExceptionHandler("Department is already saved.");
         }
         return new ResponseEntity<>(departmentRepository.save(department), HttpStatus.CREATED);
     }
