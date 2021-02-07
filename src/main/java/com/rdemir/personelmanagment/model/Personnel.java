@@ -21,18 +21,37 @@ public class Personnel extends BaseEntity {
 
     @Column(length = 50)
     private String firstName;
+
     @Column(length = 50)
     private String lastName;
+
     @Temporal(TemporalType.DATE)
     private Date birthDay;
+
+    private String birthPlace;
+
     private Double salary;
+
     @Enumerated(value = EnumType.STRING)
     private Gender gender;
+
     @Email
     private String email;
 
+    @Enumerated(EnumType.STRING)
+    private MaritalStatus maritalStatus;
+
+    @Enumerated(EnumType.STRING)
+    private MilitaryStatus militaryStatus;
+
+    @Temporal(TemporalType.DATE)
+    private Date dischargeDate;
+
     @Size(min = 11, max = 11, message = "Personel IdentityNumber is  size 11")
     private String identityNumber;
+
+    @Lob
+    private Byte image;
 
     @OneToOne
     @JoinColumn(name = "DEPARTMENT_ID")
