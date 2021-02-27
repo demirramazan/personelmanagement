@@ -10,9 +10,8 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@EqualsAndHashCode
 @Table(name = "PERSONNEL_ADDRESS")
+@Builder
 public class Address extends BaseEntity {
 
     private String country;

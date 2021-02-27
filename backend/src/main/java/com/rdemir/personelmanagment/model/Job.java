@@ -10,8 +10,6 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
 @Table(name = "PERSONNEL_JOB")
 public class Job extends BaseEntity {
 

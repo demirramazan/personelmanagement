@@ -12,7 +12,6 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Table(name = "PERSONNEL_EXAM")
 public class Exam extends BaseEntity {
 

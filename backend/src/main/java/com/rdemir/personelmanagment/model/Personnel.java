@@ -3,10 +3,7 @@ package com.rdemir.personelmanagment.model;
 import com.rdemir.personelmanagment.enums.Gender;
 import com.rdemir.personelmanagment.enums.MaritalStatus;
 import com.rdemir.personelmanagment.enums.MilitaryStatus;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -16,10 +13,10 @@ import java.util.List;
 
 @Entity
 @Data
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "PERSONNEL")
+@Builder
 public class Personnel extends BaseEntity {
 
     @Column(length = 50)

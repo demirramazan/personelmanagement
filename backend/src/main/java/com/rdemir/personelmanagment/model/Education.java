@@ -11,8 +11,6 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
 @Table(name = "PERSONNEL_EDUCATIONAL")
 public class Education extends BaseEntity {
 

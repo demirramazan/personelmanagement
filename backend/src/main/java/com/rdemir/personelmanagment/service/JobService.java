@@ -1,12 +1,8 @@
 package com.rdemir.personelmanagment.service;
 
-import com.rdemir.personelmanagment.exception.ConfictExceptionHandler;
-import com.rdemir.personelmanagment.model.Department;
+import com.rdemir.personelmanagment.exception.ExpectationExceptionHandler;
 import com.rdemir.personelmanagment.model.Job;
-import com.rdemir.personelmanagment.model.Personnel;
-import com.rdemir.personelmanagment.repository.DepartmentRepository;
 import com.rdemir.personelmanagment.repository.JobRepository;
-import com.rdemir.personelmanagment.repository.PersonnelRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +13,13 @@ import java.util.Optional;
 @AllArgsConstructor
 public class JobService {
     private final JobRepository jobRepository;
-    private final PersonnelRepository personnelRepository;
 
     public Job getJobByJobName(String jobName) {
         return jobRepository.findByJobName(jobName);
+    }
+
+    public List<Job> getJobList() {
+        return jobRepository.findAll();
     }
 
     public Job getJobById(Long id) {
@@ -37,7 +36,11 @@ public class JobService {
     }
 
     public boolean deleteJobById(Long id) {
-        jobRepository.deleteById(id);
+        try {
+            jobRepository.deleteById(id);
+        } catch (Exception e) {
+            throw new ExpectationExceptionHandler("Silme işlemi sırasında hata olustu :" + e.getMessage());
+        }
         return true;
     }
 

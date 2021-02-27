@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Table(name = "PERSONNEL_FOREIGN_LANGUAGE")
 public class ForeignLanguage extends BaseEntity {
 

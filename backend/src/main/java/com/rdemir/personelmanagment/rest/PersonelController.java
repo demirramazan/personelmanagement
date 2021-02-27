@@ -16,6 +16,7 @@ import java.util.List;
 @RequestMapping("personnel")
 @AllArgsConstructor
 @Api(value = "Personnel Rest Services")
+@CrossOrigin
 public class PersonelController {
 
     private final PersonnelService personnelService;

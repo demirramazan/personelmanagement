@@ -28,7 +28,7 @@ public class PersonnelService {
     public Personnel getPersonel(Long id) {
         return personnelRepository.findById(id)
                 .orElseThrow(() ->
-                        new RuntimeException("Personel is not found"));
+                        new NotFoundExceptionHandler("Personel is not found"));
     }
 
     @Transactional
